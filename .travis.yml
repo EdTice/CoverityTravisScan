@@ -1,2 +1,27 @@
-language: cpp
-script: make
+language: c
+compiler:
+  - gcc
+
+env:
+  global:
+   # The next declration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   -   secure: "uUBoig9AiT/9ars9Fkqmme+Fe0x1lUCHaVTy6BRUHXbZ5RFhKjW6yT7XQvQAF8wqqCMlC
+tNCcdG/c1bcqNjsvdR1p/QwAb51CmQlDBcIactoakglgMScq8IjYV2H+D4GzrXMBmLZqUhLdrs2RRaeC
+ZkvpzN1HfYqLMNw370meHY="
+   
+addons:
+  coverity_scan:
+    project:
+      name: "EdTice/CoverityTravisScan"
+      description: "Your project description here"
+    notification_email: etice@coverity.com
+    build_command: "make -j4"
+    branch_pattern: master
+    ##build_script_url: "https://raw.githubusercontent.com/daksheshvyas/MyHelloWorld/master/scan_script.sh"
+    
+    
+script:
+  - make -j2   
+ # - if [ "${COVERITY_SCAN}" = '1' ]; then eval "$COVERITY_SCAN_BUILD"; else eval "$STANDARD_BUILD_COMMAND"; fi
+ #build_script_url
