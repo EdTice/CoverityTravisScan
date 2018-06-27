@@ -35,6 +35,8 @@ node {
         def file1 = new File('files.txt')
         println file1.name
         println file1.path
+     
+        println new File(".").getCanonicalPath()
         file1 << myFiles
     }
 }
