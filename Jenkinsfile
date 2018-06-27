@@ -1,4 +1,5 @@
 def showChangeLogs() {
+ def changedFiles = [];
  def fileChange = false
  def changeLogSets = currentBuild.changeSets
  for (int i = 0; i < changeLogSets.size(); i++) {
@@ -11,11 +12,14 @@ def showChangeLogs() {
     def file = files[k]
     echo "  ${file.editType.name} ..File Path - ${file.path}"
     if (file.path.endsWith(".java"))
+    {
      fileChange = true
+    }
+    changedFiles += file.path
    }
   }
  }
- return fileChange
+ return changedFiles
 }
 
 node {
@@ -25,6 +29,7 @@ node {
 
 
     stage('Build') {
-        showChangeLogs()
+        myFiles = showChangeLogs()
+        println "myFiles ${myfiles}"
     }
 }
