@@ -33,6 +33,7 @@ node {
         println "myFiles ${myFiles}"
      
         def file1 = new File('files.txt')
+        println file1.getCanonicalPath
         file1 << myFiles
     }
 }
