@@ -32,9 +32,9 @@ node {
         myFiles = showChangeLogs()
         println "myFiles ${myFiles}"
      
-        def file1 = new File('files.txt')
-        println file1.name
-        println file1.path
+        def workspace = pwd()
+     
+        def file1 = new File("${workspace}\\files.txt")
      
         println new File(".").getCanonicalPath()
         file1 << myFiles
