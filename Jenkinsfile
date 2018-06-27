@@ -30,6 +30,6 @@ node {
 
     stage('Build') {
         myFiles = showChangeLogs()
-        println "myFiles ${myfiles}"
+        println "myFiles ${myFiles}"
     }
 }
