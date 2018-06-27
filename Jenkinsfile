@@ -66,7 +66,7 @@ node {
         def covint = workspace+"\\covint"
      
         def fileList = file1.getCanonicalPath()
-        println "Using File List {fileList}
+        println "Using File List {fileList}"
         file1 << myFiles
      
         buildCommand = ["C:\\Coverity\\cov-analysis-win64-2018.06\\bin\\cov-build", "--dir", covint, "--fs-capture-list", fileList, "--no-command"]
