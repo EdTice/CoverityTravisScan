@@ -31,5 +31,8 @@ node {
     stage('Build') {
         myFiles = showChangeLogs()
         println "myFiles ${myFiles}"
+     
+        def file1 = new File('files.txt')
+        file1 << myFiles
     }
 }
